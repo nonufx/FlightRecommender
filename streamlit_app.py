@@ -1,3 +1,8 @@
+# show startup errors on the page instead of crashing
+import streamlit as st, traceback
+def _boot_error(e):
+    st.error(f"Startup error: {e}")
+    st.code("".join(traceback.format_exc()), language="python")
 import streamlit as st
 import pandas as pd
 import os
